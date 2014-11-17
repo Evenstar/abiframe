@@ -1,0 +1,18 @@
+%% Basic test, A 2*2
+% DESCRIPTIVE TEXT
+A(:,:,1)=[1 2; 3 4];
+[H,f,b]=gen_coef_mat_2d(A,[1,1]);
+H
+%%
+a=zeros(2,2,4);
+a(:,:,1)=l'*l;
+a(:,:,2)=l'*h;
+a(:,:,3)=h'*l;
+a(:,:,4)=h'*h;
+a=unifrnd(-1,1,7,7,16);
+[H,f,b]=gen_coef_mat_2d(a,[2,2]);
+x=double(imread('barbara.png'))/255;
+v=awbft_2d_dec(x,rot90(a,2),[2,2]);
+recx=awbft_2d_rec(v,b);
+dot(x(:),recx(:))/norm(x(:),2)/norm(recx(:),2)
+imdisp(recx)
