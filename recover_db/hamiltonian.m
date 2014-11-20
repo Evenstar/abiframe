@@ -4,6 +4,5 @@ function s=hamiltonian(a,x)
     for i=1:m
         v=conv(a(i,:),x);
         s=s+sum(abs(v));
-    end
-    
+    end  
 end
