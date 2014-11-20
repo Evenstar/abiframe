@@ -1,5 +1,5 @@
 function D=sub_d(x,A,B,eta)
-%F(D)= \|D\|_{1,1} + \|W_A*x+B-D\|_2^2
+%F(D)= \|D\|_{1,1} + \eta*\|W_A*x+B-D\|_2^2
     D=zeros(size(B));
     [~,m]=size(A);
     for i=1:m
